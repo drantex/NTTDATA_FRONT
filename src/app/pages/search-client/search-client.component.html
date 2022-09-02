@@ -1,0 +1,35 @@
+<section>
+  <p-toast position="top-right"></p-toast>
+
+
+  <div class="container-search">
+
+    <form [formGroup]="form" novalidate (ngSubmit)="searchClient()">
+
+
+      <div class="mb-3 p-fluid">
+        <label for="exampleInputEmail1" class="form-label">Tipo de documento</label>
+        <p-dropdown
+          [options]="documentTypes"
+          optionLabel="name"
+          optionValue="code"
+          placeholder="Seleccione el tipo de documento"
+          formControlName="documentType">
+        </p-dropdown>
+
+      </div>
+
+      <div class="mb-3 p-fluid">
+        <label for="exampleInputPassword1" class="form-label">Número de documento</label>
+        <p-inputNumber formControlName="documentNumber" [min]="1" [maxlength]="14" id="assets" placeholder="Ingrese el número de documento"></p-inputNumber>
+      </div>
+
+      <div class="container-btn p-fluid">
+        <button pButton type="submit" label="Buscar" [disabled]="!form.valid" [class.p-button-outlined]="!form.valid" ></button>
+      </div>
+
+
+    </form>
+
+  </div>
+</section>
